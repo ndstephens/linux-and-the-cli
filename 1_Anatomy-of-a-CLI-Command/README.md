@@ -1,0 +1,26 @@
+# Anatomy of a CLI Command
+
+## `--help`
+
+- a flag to use after any command to get more info about that command
+- `ls --help`
+
+## `which`
+
+- will tell you the path of the program you provide it as an argument
+- `which ls` --> `/bin/ls`
+
+## FLAGS
+
+- `--` is the _long-form_
+- `-` is the _short-form_
+- **_short-form_** flags are intended to be combined
+  - `-a` and `-l` combine to `-al`
+  - the _long-form_ of `-a` is `--all`...which is very different from `-all`
+  - `-all` is actually equivalent to `-a`, `-l`, and `-l` again
+  - therefore any flag that begins with the `-` _short-form_, and followed by _more than one_ character, is a combination of _short-form_ flags
+  - any flag that begins with the `--` _long-form_ is a single flag and can not be directly combined with other flags
+- a useful _short-form_ flag combo for `ls` is `-lah`
+  - `-l` to display the long-format of the files and folders
+  - `-a` to display hidden files and folders
+  - `-h` to display the size information in a "human-readable" format
