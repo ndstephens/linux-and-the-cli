@@ -3,7 +3,7 @@
 ## Reverse Search
 
 - `CTRL-R`
-- then start typing a string that was contained in a command you previously used (to search for that command)
+- then start typing a string that was contained in a command you previously used to search for that command
 - the most recently used match will display
 - hit `CTRL-R` again to search one step further back in your command history
 
@@ -11,7 +11,7 @@
 
 - a file containing a history of all the bash commands you've run
 - it is only written to once you've exited your current bash session...not written to in real-time
-- be careful with this as it contains **_everything_** you've typed into the command line...including credentials such as _passwords_
+- be careful with this as it contains **_everything_** you've typed into the command line...including credentials such as **_passwords_**
 - can run a command to delete such things from history
 
 ## `!!`
@@ -21,7 +21,7 @@
 - often used when you run a command and then discover `sudo` was needed
   - `sudo !!`
 
-## Copy and Paste
+## Copy & Paste
 
 - on Mac `CMD-C` and `CMD-V` will work
 - on Windows will need to use `SHIFT-CTRL-C` and `SHIFT-CTRL-V`

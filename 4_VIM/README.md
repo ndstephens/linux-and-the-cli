@@ -2,29 +2,29 @@
 
 ## Basic Commands (or Command Modes)
 
-- Command Mode
+- **Command Mode**
   - the default mode
   - highlight a character and press `x` to delete that character
   - `:d` deletes the entire line
-  - `:d3` will delete 3 lines
+    - `:d3` will delete 3 lines
   - `h` --> `left`
   - `j` --> `down`
   - `k` --> `up`
   - `l` --> `right`
-  - **_arrow keys also work_**
-- Insert Mode (to type)
+    - **_arrow keys also work_**
+- **Insert Mode** (to type)
   - press `i` key to enter `Insert Mode`
   - should see `-- INSERT --` at the bottom of the screen
   - press `esc` key to revert back to `Command Mode`
-- Save
+- **Save**
   - `:w` --> Save
   - `:wq` --> Save then Quit
-- Quit
+- **Quit**
   - `:q` --> Quit
     - if you try to quit with unsaved changes it won't let you. Either first save or type:
   - `:q!` --> Quit without saving
   - `:qa!` --> "try to gracefully quit everything and if not, just quit anyway"
-- Exit
+- **Exit**
   - `CTRL-D` a few times
 
 ## How to Learn VIM

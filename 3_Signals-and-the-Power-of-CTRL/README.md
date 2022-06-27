@@ -1,6 +1,6 @@
 # Signals and the Power of CTRL
 
-- `CTRL` is very commonly used on the command line
+- the `CTRL` key is very commonly used on the command line
 - it's used for shortcuts and to send very specific signals to the shell
 
 ## Shortcuts
