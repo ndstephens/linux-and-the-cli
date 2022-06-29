@@ -1,4 +1,4 @@
-# Wildcards and Replacements (Expansions)
+# Wildcards, Replacements, and Expansions
 
 > `bash` does the translation of wildcards and replacements, **_not_** the programs
 
