@@ -156,7 +156,7 @@ cat ls.txt | grep "error-log.txt"
 
 > `cat` sends the contents of `ls.txt` to its `stdout` and then `|` will pipe `stdout` to the input of `grep` via its `stdin`. `grep` will then search for a text match and output its results to `stdout` to be displayed on the terminal screen.
 
-- Another Example:
+### Find a running process:
 
 ```sh
 ps aux | grep "ps aux"
@@ -166,16 +166,30 @@ ps aux | grep "ps aux"
 >
 > This should output two lines...the `ps aux` call and the `grep` process itself that we're running to find that `ps aux`.
 
-- Another example:
+### Real-World Example:
 
-  - `rm -i *.txt` will interactively try to remove all files with the `.txt` extension. It'll confirm with you on each one asking for either a `y` or `n`
-  - `yes` is a program that infinitely loops a `y` to `stdout` (or `n` with an argument)
+- Find a process running in the background to kill it
+
+```sh
+ps aux | grep "node"
+```
+
+> From the results you can grab the process (ex. "1224") Id and then kill it...
+
+```sh
+kill -9 1224
+```
+
+### Script to auto-respond to interactive requests:
+
+- `rm -i *.txt` will interactively try to remove all files with the `.txt` extension. It'll confirm with you on each one asking for either a `y` or `n`
+- `yes` is a program that infinitely loops a `y` to `stdout` (or `n` with an argument)
 
 ```sh
 yes n | rm -i *.txt
 ```
 
-> `n` is infinitely output to `stdout`. `rm -i *.txt` uses those from `stdin` to answer "no" to every request to delete the next `.txt` file.
+> `n` is infinitely output to `stdout`. `rm -i *.txt` uses those from `stdin` to answer "no" to every request to delete the next `.txt` file. (All of the requests are still output to the terminal screen as they would have been without using `yes`).
 
 ---
 
