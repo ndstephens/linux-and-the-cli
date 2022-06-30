@@ -1,14 +1,20 @@
 # Anatomy of a CLI Command
 
-## `--help`
+## `<command> --help`
 
 - a flag used after any command to get basic info about that command
   - eg. `ls --help`
 
-## `which`
+## `which <command>`
 
 - will tell you the path of the program you provide it as an argument
   - eg. `which ls` --> `/bin/ls`
+
+## `whereis <command>`
+
+- will tell you the path of the program you provide it as an argument
+  - eg. `whereis ls` --> `ls: /bin/ls`
+- **_Seems to work better sometimes_**
 
 ## FLAGS
 
