@@ -49,12 +49,11 @@
 ### `su <username>` - switch user
 
 - Switches you to that user
-  - May have to enter their password
+  - May have to enter their password (if they created one for their account)
 
 ### `useradd <username>` - create a new user
 
 - Need to be the `root` user or able to use `sudo`
-  - or be a user that has super-user permissions
 
 ```sh
 <sudo> useradd -s /bin/bash -m -g admins <username>
@@ -70,11 +69,11 @@
 
 - Add a password to the user account.
 - You will be prompted for it after entering the command (and prompted again for verification)
+- Need to be the `root` user or able to use `sudo`
 
 ### `userdel <username>` - delete a user
 
 - Need to be the `root` user or able to use `sudo`
-  - or be a user that has super-user permissions
 
 ---
 
