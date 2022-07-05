@@ -63,6 +63,8 @@
 >
 > ...with a pre-made home directory (the -m part), (otherwise with Ubuntu it's the root but they don't have any privileges),
 >
+> (In this case the user's home directory would be `/home/admins` or wherever that group's home directory is)
+>
 > ...and they'll be a part of the "admins" group (the -g part)
 
 ### `passwd <username>` - add a password
