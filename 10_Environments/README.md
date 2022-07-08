@@ -45,11 +45,15 @@ echo $GREETING # hello
 
 ## Permanently create or update a variable
 
+### \- Globally:
+
 - The following are global options. But usually you should only do this on a per-user basis by updating their `.bashrc` file in their home directory (explained in the next section).
   - The first global option is editing `/etc/environment`. This will modify every user's environment (often not what you want). Each line in that environment file should be `VARIABLE=value` with one per line.
   - Similar with `/etc/profile` and `/etc/bashrc` except with these you can actually invoke `scripts` within them. Again, this is **_system-wide_** and **_not_** usually what you want.
 
-## `.bashrc` and `.bash_profile`
+### \- Per User:
+
+#### `.bashrc` and `.bash_profile`
 
 - If using `bash` for your shell there are two files in your user's home directory, `.bashrc` and `.bash_profile`.
   - If using `zsh` there is a `.zshrc` file.

@@ -32,28 +32,30 @@ echo done
   - They take the place of the `test` command.
 - The condition in the example above actually evaluates to `test -z $DESTINATION`.
 - **_NOTE:_** If you forget how to do conditional checks you can always run `man test` and it's a pretty understandable list of the various things you can do.
-- In this case `-z $DESTINATION` is checking to see if `DESTINATION` is a zero length string which would mean the user didn't provide anything.
+- In this case `-z $DESTINATION` is checking to see if `DESTINATION` is a zero-length string which would mean the user didn't provide anything.
 
 ```sh
 test -z ""
-echo $? # 0, this is true
+echo $? # 0, this equates to true
 test -z "lol"
-echo $? # 1, this is false
+echo $? # 1, this equates to false
 ```
+
+> **_REMEMBER:_** `$?` corresponds to the last exit code
 
 **_NOTE:_** unlike JavaScript...
 
-- `0` means `true` (b/c it's a successful exit code)
+- `0` means `true` (b/c it's a successful `exit code`)
 - `1` means `false`
 
-Examples of some other operators other than `-z`:
+Examples of some operators other than `-z`:
 
 ```sh
-test 15 -eq 15 # 0
-test brian = brian # 0
-test brian != brian # 1
-test 15 -gt 10 # 0 - gt means greater than
-test 15 -le 10 # 1 - le means less than or equal to
+test 15 -eq 15 # 0 - "equals" for numbers
+test brian = brian # 0 - "equals" for strings
+test brian != brian # 1 - "does not equal" for strings
+test 15 -gt 10 # 0 - greater than
+test 15 -le 10 # 1 - less than or equal to
 test -e ~/some-file.txt # tests to see if a file exists
 test -w ~/some-file.txt # tests to see if a file exists and you can write to it
 ```

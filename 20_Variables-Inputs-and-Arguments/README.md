@@ -11,6 +11,8 @@
   - `NAME="value"`
 - You do not have to make them uppercase though it's suggested as that's standard for bash scripts.
 
+#### \- EXAMPLE: create a script/program called `gen_files`
+
 ```sh
 #! /bin/bash
 
@@ -29,15 +31,27 @@ echo done
 >
 > The `{}`'s let `bash` know where the variable name stops.
 >
-> The first two you can totally use them too e.g. `cd ${DESTINATION}` but it's optional.
+> With the first two you can still use `{}` (e.g. `cd ${DESTINATION}`) but it's optional.
 
-- **_REMEMBER:_** if you use `$()` it means a subcommand like `touch $(whoami).txt`.
+- Run the program:
+
+```sh
+gen_files # runs the program
+done # output from the program finishing
+
+# 10 files named file.txt through file0.txt were created in `~/temp`
+```
+
+- **_REMEMBER:_** if you use `$( )` it means a subcommand like `touch $(whoami).txt`.
+
+---
 
 ## User Input
 
+User inputs are supplied by the user after running the command.
+
 - So what if we want users to be able to define the file prefix?
 - There's a program called `read` that will get user input and define a variable based on it.
-- Try it by running `read name && echo hello $name`
 
 ```sh
 #! /bin/bash
@@ -53,10 +67,25 @@ echo done
 
 > The `-p` flag allows us to prompt the user with a string, letting them know what we're expecting.
 
+- Run the program:
+
+```sh
+gen_files # runs the program
+enter a file prefix: # prompt displayed in terminal
+# user enters "log" and hits return
+done # output from the program finishing
+
+# 10 files named log1.txt through log10.txt were created in `~/temp`
+```
+
+---
+
 ## Arguments
 
-- What if we want the user to be able to pass in the `path` to where we want to create the directory?
-- We can do that via `arguments` (sometimes called `parameters` too.)
+Arguments are supplied directly after (on the same line as) the command.
+
+- What if we want the user to be able to pass in the `path` to where we create the directory?
+- We can do that via `arguments` (sometimes called `parameters` too)
 - We want the user to be able say `gen_files ~/<different_directory>` and use that input as `$DESTINATION`.
 
 ```sh
@@ -71,8 +100,19 @@ touch ${FILE_PREFIX}{1..10}.txt
 echo done
 ```
 
-> Here we just replaced what went into `DESTINATION` with `$1`.
+> Here we just replaced `DESTINATION` with the first argument (`$1`).
 >
-> We totally could have replaced everywhere there was `DESTINATION` with `$1`, but it was easier (and made the script clearer) by replacing the contents of `DESTINATION` with `$1`.
+> We could have replaced all uses of `DESTINATION` with `$1`, but it was easier (and made the script clearer) by replacing the contents of `DESTINATION` with `$1`.
 
-- `$0` is available here too. It'll be `gen_files`. And if you gave two arguments, the second one will be `$2` and so on and so forth.
+- Run the program:
+
+```sh
+gen_files ~/my-directory # runs the program, setting DESTINATION to "~/my-directory"
+enter a file prefix: # prompt displayed in terminal
+# user enters "log" and hits return
+done # output from the program finishing
+
+# 10 files named log1.txt through log10.txt were created in `~/temp`
+```
+
+- `$0` is available here too. It'll be `gen_files` (the program). And if you gave two arguments, the second one will be `$2` and so on and so forth.

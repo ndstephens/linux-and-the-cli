@@ -3,9 +3,9 @@
 - Linux has a feature called `cron` that will run tasks on a schedule.
 - There are two ways to accomplish this, an easy way to remember and a slightly less easy way.
 
-## cron folders
+## cron folders - (easier but less options)
 
-Any script you put in any of the following will be run on a schedule:
+Any script you put in any of the following will be run on that schedule:
 
 - `/etc/cron.daily`
 - `/etc/cron.hourly`
@@ -17,10 +17,12 @@ Just make sure they have executable privileges.
 - `sudo chmod +x <file>` will do that.
 - Anything in those folders will be run as `root`.
 
-## crontab
+---
+
+## crontab - (more complicated but greater control)
 
 - If you need a more defined schedule (like every five minutes, every other Thursday, every six months, etc.) then you can use the classic way, `crontab`.
-- With `crontab` you can define a cron schedule to execute your scripts.
+- With `crontab` you can define a very specific cron schedule to execute your scripts.
 
 **_EXAMPLE:_**
 
@@ -41,18 +43,18 @@ touch file-$(date +%s).txt
 
 > `date +%s` gives you the epoch timestamp, or how many seconds have elapsed since `Jan 1, 1970`.
 
-- Now, if you do `crontab -e` it will run this as root.
-  - If you'd like to run it as a user you can do that by doing `crontab -u <user> -e`.
-  - The first time it will ask you what editor you prefer to use to edit your crontab.
-- The comments in the file explains the process fairly well:
+- Now run `crontab -e` (it will run this as `root`)
+  - If you'd like to run it as a `user` you can do that by running `crontab -u <user> -e`.
+- The first time it will ask you what editor you prefer to use to edit your crontab.
+- The comments in the file explain the process fairly well:
 
 ```sh
 * * * * * <the command you want to run>
 ```
 
-> I believe you need to give the `command` as an absolute path...however maybe you can just type the command if it's in your `PATH`
+> I believe you need to supply the `command` as an absolute path...however maybe you can just enter the command name if it's in your `PATH`
 
-- The above five stars would run every minute.
+- The above five stars mean it would run every minute (of every hour, of everyday, ...).
 - Each of those stars represents a frequency:
 
 ```sh
@@ -84,5 +86,9 @@ touch file-$(date +%s).txt
 @monthly <command>
 @annually <command>
 ```
+
+---
+
+## www.crontab.guru
 
 - Make use of the site [crontab.guru](https://crontab.guru/) for help creating the schedule expressions
