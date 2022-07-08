@@ -2,11 +2,10 @@
 
 ## Exit Codes
 
-- Whenever a process exits, it exits with an exit code.
-- This exit code corresponds to if a process successfully completed whatever you told it to do successfully.
+- Whenever a process completes (or exits), it returns an exit code.
+- This exit code corresponds to if a process successfully completed whatever you told it to do.
   - `0` means it finished or exited successfully. All other numbers mean it did not finish successfully.
 - Sometimes this is a bit misleading because some programs are meant to be stopped before they complete (`yes` will never actually complete by itself).
-- A program that successfully runs and exits by itself will have an exit code of `0`.
 
 ### `$?`
 
@@ -34,7 +33,7 @@ echo $? # you stopped it so it exited with a non-zero code, 130
 ### Why are exit codes important?
 
 - Can be useful to see if a command succeeded or not.
-- Also useful for running programs in a sequence using operations.
+- Also useful for running programs in a sequence using `operators` and `conditionals`.
 
 ---
 
@@ -45,7 +44,7 @@ echo $? # you stopped it so it exited with a non-zero code, 130
 ### `&&`
 
 - Runs from left to right.
-- Will only run the next command if the previous one succeeded.
+- Will continue to run only if the previous command succeeds.
 - Will bail if any command along the way fails.
 - Successful sequence:
 
@@ -60,13 +59,15 @@ cat status.txt
 - Failed sequence:
 
 ```sh
-date && cat not-real-file.txt && echo hi # the date will display but hi won't
+date && cat not-real-file.txt && echo hi
 ```
+
+> The date will display but "hi" won't
 
 ### `||`
 
-- Will continue to run if the previous command fails.
-- Otherwise it stops after the first successful command.
+- Will continue to run only if the previous command fails.
+- Otherwise it stops after the last successful command.
 
 ```sh
 true || echo hi # (nothing)

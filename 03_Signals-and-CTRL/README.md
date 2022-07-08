@@ -24,8 +24,10 @@
   - If I use the `kill` program to kill another program, the way it does that is by sending a SIGTERM to the program. The difference is that if the program doesn't exit, kill will still shut down the process
 - `SIGKILL`
   - If you want a program to stop and stop **now**, you can do `kill -9 <program-id>` (or `kill -SIGKILL <program-id>`) and it will send `SIGKILL` which means to the program "don't clean up, just stop as soon as possible"
-- More signals
-  - If you run `kill -l` in your terminal, it'll show you all the signals your computer supports
+
+### List of Signals
+
+- If you run `kill -l` in your terminal, it'll show you all the signals your computer supports
 
 | SIG-CMD         | SIG-CMD         | SIG-CMD         | SIG-CMD         | SIG-CMD         |
 | --------------- | --------------- | --------------- | --------------- | --------------- |

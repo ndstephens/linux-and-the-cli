@@ -14,11 +14,11 @@ sftp <remote-user-account>@<remote-ip-address-or-domain>
 
 - The `sftp` interactive shell is similar to a less friendly and stripped down version of `bash`.
 - The thing to keep in mind is you're in two directories at the same time as opposed to normal `bash` when you're just in one.
-- With `sftp`, you have a `local context` and a `remote context` (you're basically in both at the same time)
+- With `sftp`, you have a `local context` and a `remote context` (you're in both at the same time)
   - In order to run a local command, tack an `l` to the start of whatever command you're running, like `lls`, `lpwd`, or `lcd`.
   - When you want to do it on the remote machine, just run the commands like normal, like `ls`, `pwd`, or `cd`.
   - Review the commands you can run while in `sftp` by running `help` when in `sftp`
-  - Use `!<command>` to execute that command in the local shell (or just `!` to escape to the local shell)
+  - Outside of the `sftp`-specific commands listed under `help`, use `!<command>` to execute a command in the local shell (or just `!` to escape to the local shell)
 
 ```sh
 lpwd # local home directory
@@ -46,4 +46,4 @@ put file-to-put.txt putted-file.txt # second argument is optional, if you omit i
 get putted-file.txt gotten-file.txt # same thing, second one is optional
 ```
 
-- **_REMEMBER:_** here's a good place to use `tar` to bundle some files together inside of moving them around individually
+- **_REMEMBER:_** here's a good place to use `tar` to bundle some files together instead of moving them around individually

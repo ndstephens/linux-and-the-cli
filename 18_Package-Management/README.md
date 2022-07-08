@@ -14,21 +14,21 @@
 ### `apt-get`
 
 - `apt-get` is older than `apt`. `apt-get` is a swiss army knife of `apt` and has a lot of flexibility and power to do different things.
-- It also pairs wth `apt-cache` to get accomplish some tasks as well.
-- Since some folks got frustrated that `apt-get` was a bit difficult how to use and where all the correct commands were, they built a layer on top of it to be more user friendly, `apt`.
+- It also pairs wth `apt-cache` to accomplish some other tasks as well.
+- Some folks got frustrated that `apt-get` was a bit difficult to use so they built a layer on top of it to be more user friendly...`apt`.
 
 ### `apt`
 
-- `apt` is a tool that allows you to download new packages via `apt install <package>`. This will go out and fetch the package from the `apt` registry and install.
-- Can install `aptitude` for a nice `apt` package management "UI" (`sudo apt install aptitude`)
+- `apt` is a tool that allows you to download new packages via `apt install <package>`. This will go out and fetch the package from the `apt` registry and install it.
+- **_NOTE:_** Can install `aptitude` for a nice `apt` package management "UI" (`sudo apt install aptitude`)
 - An example:
 
 ```sh
 node -e "console.log('hi')" # this will fail, Node.js is not installed
-apt search nodejs
-apt show nodejs
+apt search nodejs # search the registry for all packages with "nodejs" in their name or description
+apt show nodejs # show details of the specific package called "nodejs"
 sudo apt install nodejs
-node -e "console.log('hi')"
+node -e "console.log('hi')" # now it works b/c Node.js was installed
 ```
 
 - Some commands worth knowing:

@@ -5,26 +5,28 @@
 ## Wildcards
 
 - `*` represents **_0 or more_** characters of replacement
-- `?` represents **_exactly one_** character of replacement
+- `?` represents **_exactly one (required)_** character of replacement
   - can use `??` to replace exactly `2` characters in a row
 
 ```sh
 touch file1.txt file2.txt file.txt
-ls file*.txt
-ls file?.txt
+ls file*.txt # file1.txt file2.txt file.txt
+ls file?.txt # file1.txt file2.txt
 ```
 
-> Notice the first ls call does output file.txt and the second one doesn't
+> Notice the first `ls` call does output `file.txt` but the second one does not
 
-- `[]` can limit the accepted characters
+- `[]` can limit the accepted characters to a range
   - eg. `ls file[1-5].txt`
-- `^` negates characters
-  - eg. `ls file[^1-5].txt` any number **_except_** 1-5
+  - any number between, and including, 1 through 5
+- `^` negates characters in a range
+  - eg. `ls file[^1-5].txt`
+  - any number **_except_** 1 through 5
 
 ## Expansions
 
-- `{}`
-- eg. You wanted to create three files using touch all at once. You could do:
+- `{ }`
+- eg. You wanted to create three files all at once using `touch`. You could do:
 
 ```sh
 touch file4.txt
