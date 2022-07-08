@@ -14,19 +14,28 @@ Any script you put in any of the following will be run on a schedule:
 
 Just make sure they have executable privileges.
 
-- `sudo chmod +x <file>` will do what you need it to do.
-- Anything in here will be run as `root`.
+- `sudo chmod +x <file>` will do that.
+- Anything in those folders will be run as `root`.
 
 ## crontab
 
 - If you need a more defined schedule (like every five minutes, every other Thursday, every six months, etc.) then you can use the classic way, `crontab`.
 - With `crontab` you can define a cron schedule to execute your scripts.
-- Let's say we want to make a new file in `~/cronfiles` every two minutes.
-- First, let's make the script. In your home directory, create `make-new-file` and put this in there.
+
+**_EXAMPLE:_**
+
+- Let's say every two minutes we want to create a new file called `file-<date-in-seconds>.txt` in a directory called `~/cron-files`.
+- First, let's make the script.
+  - Create it in a directory referenced in your `PATH`.
+  - Name it `make-new-file`.
+  - Make it executable with `chmod +x make-new-file`.
+  - Put the following code in there:
 
 ```sh
-mkdir -p ~/temp-files
-cd ~/temp-files
+#! /bin/bash
+
+mkdir -p ~/cron-files
+cd ~/cron-files
 touch file-$(date +%s).txt
 ```
 
@@ -41,6 +50,8 @@ touch file-$(date +%s).txt
 * * * * * <the command you want to run>
 ```
 
+> I believe you need to give the `command` as an absolute path...however maybe you can just type the command if it's in your `PATH`
+
 - The above five stars would run every minute.
 - Each of those stars represents a frequency:
 
@@ -49,7 +60,7 @@ touch file-$(date +%s).txt
 ```
 
 - The stars mean "every", hence why five stars runs every minute.
-- So if we wanted to run the command `once` an hour **_only_** on the `fifth minute`, we could do this:
+- So if we wanted to run the command **_only_** on the `fifth minute` of `every hour`, we could do this:
 
 ```sh
 5 * * * * <command>
